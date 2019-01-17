@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Usuario</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1 class="header-heading">Listado de Estaciones</h1>
+		</div>
+
+		<div class="content">
+			<table class="table table-striped">
+				<tr>
+					<th>Elija el criterio por el que desea filtrar:</th>
+				</tr>
+				<tr>
+					<th>Nombre</th>
+					<th><input type="text" name="nombre" size="30"></th>
+				</tr>
+
+				<tr>
+					<th>Estado</th>
+					<th><select name="estado">
+							<option value="" selected>--Seleccione--</option>
+							<option value="operativa">Operativa</option>
+							<option value="cerrada">Cerrada</option>
+							<option value="en_construccion">En Construccion</option>
+					</select></th>
+				</tr>
+				<tr>
+					<th><input class="btn" type="submit" value="Buscar"></th>
+				</tr>
+
+			</table>
+			<br>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nombre</th>
+						<th>Bicicletas Disponibles</th>
+						<th>Bicicleteros Disponibles</th>
+						<th>Estado</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Plaza Moreno</td>
+						<td>67</td>
+						<td>12</td>
+						<td>Operativa</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>Plaza Italia</td>
+						<td>23</td>
+						<td>84</td>
+						<td>Cerrada</td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>Terminal</td>
+						<td>48</td>
+						<td>128</td>
+						<td>En Construccion</td>
+					</tr>
+					<tr>
+						<td scope="row">4</td>
+						<td>Pasaje Dardo Rocha</td>
+						<td>34</td>
+						<td>97</td>
+						<td>Operativa</td>
+					</tr>
+
+				</tbody>
+			</table>
+			<br>
+			<table class="table table-striped">
+				<tbody>
+
+					<tr>
+						<th>Ordenar por</th>
+						<th><select name="orden">
+								<option value="" selected>--Seleccione--</option>
+								<option value="nombre">Nombre</option>
+								<option value="estado">Estado</option>
+								<option value="bicicletasDisponibles">Bicicletas
+									Disponibles</option>
+								<option value="bicicleterosDisponibles">Bicicleteros
+									Disponibles</option>
+						</select></th>
+					</tr>
+			</table>
+			<br>
+
+			<table class="table table-striped">
+				<tr>
+					<td><IMG SRC="mapa.jpg"></td>
+				</tr>
+
+			</table>
+
+		</div>
+	</div>
+</body>
+</html>

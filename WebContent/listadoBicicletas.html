@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Administrador</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1 class="header-heading">Bicicletas</h1>
+		</div>
+
+
+		<div class="content">
+			<table class="table table-striped">
+				<tr>
+					<th>Elija el criterio por el que desea filtrar:</th>
+				</tr>
+				<tr>
+					<th>Id Bicicleta</th>
+					<th><input type="text" name="id" size="30"></th>
+				</tr>
+
+				<tr>
+					<th>Estado</th>
+					<th><select name="estado">
+							<option value="" selected>--Seleccione--</option>
+							<option value="operativa">Apto para uso</option>
+							<option value="cerrada">En reparacion</option>
+							<option value="en_construccion">En desuso</option>
+							<option value="en_construccion">Denunciada</option>
+					</select></th>
+				</tr>
+				<tr>
+					<th><input class="btn" type="submit" value="Buscar"></th>
+				</tr>
+
+			</table>
+
+			<br>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Id</th>
+						<th>Ubicacion</th>
+						<th>Estado Actual</th>
+
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>26</td>
+						<td>Plaza Moreno</td>
+						<td>Apta para el uso</td>
+						<td><a href="historialDisponibilidad.html">historial
+								disponibilidad</a></td>
+						<td><a href="#">eliminar</a></td>
+						<td><a href="modificarBicicleta.html">modificar</a></td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>53</td>
+						<td>Plaza Italia</td>
+						<td>En reparacion</td>
+						<td><a href="#">historial disponibilidad</a></td>
+						<td><a href="#">eliminar</a></td>
+						<td><a href="#">modificar</a></td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>86</td>
+						<td>Terminal</td>
+						<td>En desuso</td>
+						<td><a href="#">historial disponibilidad</a></td>
+						<td><a href="#">eliminar</a></td>
+						<td><a href="#">modificar</a></td>
+					</tr>
+					<tr>
+						<th scope="row">4</th>
+						<td>90</td>
+						<td>Pasaje Dardo Rocha</td>
+						<td>Denunciada</td>
+						<td><a href="#">historial disponibilidad</a></td>
+						<td><a href="#">eliminar</a></td>
+						<td><a href="#">modificar</a></td>
+					</tr>
+					<tr>
+						<th scope="row">5</th>
+						<td>98</td>
+						<td>Plaza Moreno</td>
+						<td>Apta para el uso</td>
+						<td><a href="#">historial disponibilidad</a></td>
+						<td><a href="#">eliminar</a></td>
+						<td><a href="#">modificar</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<table class="table table-striped">
+				<tbody>
+
+					<tr>
+						<th>Ordenar por</th>
+						<th><select name="orden">
+								<option value="" selected>--Seleccione--</option>
+								<option value="id">Id</option>
+								<option value="estado">Estado</option>
+								<option value="longitud">Ubicacion</option>
+								<option value="fechaIngreso">Fecha Ingreso</option>
+						</select></th>
+					</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

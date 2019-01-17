@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Administrador</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1 class="header-heading">Usuarios</h1>
+		</div>
+
+
+		<div class="content">
+			<form>
+				<table class="table table-striped">
+					<tr>
+						<th>Elija el criterio por el que desea filtrar:</th>
+					</tr>
+					<tr>
+						<th>Nombre</th>
+						<th><input type="text" name="nombre" size="30"></th>
+					</tr>
+					<tr>
+						<th>DNI</th>
+						<th><input type="text" name="dni" size="20"></th>
+					</tr>
+					<tr>
+						<th>Estado Habilitacion</th>
+						<th><select name="estado">
+								<option value="" selected>--Seleccione--</option>
+								<option value="inhabilitacionDefinitiva">Inhabilitacion
+									Definitiva</option>
+								<option value="inhabilitacionTemporal">Inhabilitacion
+									Temporal</option>
+								<option value="habilitada">habilitado</option>
+						</select></th>
+					</tr>
+					<tr>
+						<th><input class="btn" type="submit" value="Buscar"></th>
+					</tr>
+
+				</table>
+
+				<br>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>DNI</th>
+							<th>domicilio</th>
+							<th>Habilitar/Deshabilitar</th>
+
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Lautaro</td>
+							<td>Fernandez</td>
+							<td>27356409</td>
+							<td>Calle 37 nro 432</td>
+							<td><select name="habilitar">
+									<option value="nombre" selected>Inhabilitacion
+										definitiva</option>
+									<option value="apellido">Inhabilitadacion temporal</option>
+									<option value="dni">Habilitada</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Celica</td>
+							<td>Linares</td>
+							<td>28975643</td>
+							<td>Avenida 7 nro 574 depto 4</td>
+							<td><select name="habilitar">
+									<option value="nombre">Inhabilitacion definitiva</option>
+									<option value="apellido" selected>Inhabilitacion
+										temporal</option>
+									<option value="dni">Habilitada</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Cecilia</td>
+							<td>Pacheco</td>
+							<td>21786453</td>
+							<td>Calle 20 e/41 y 42 nro 432</td>
+							<td><select name="habilitar">
+									<option value="nombre">Inhabilitacion definitiva</option>
+									<option value="apellido">Inhabilitacion temporal</option>
+									<option value="dni" selected>Habilitada</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Guillermo</td>
+							<td>Velazquez</td>
+							<td>20098308</td>
+							<td>Calle 23 nro 265</td>
+							<td><select name="habilitar">
+									<option value="nombre">Inhabilitacion definitiva</option>
+									<option value="apellido">Inhabilitacion temporal</option>
+									<option value="dni" selected>Habilitada</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td><input class="btn" type="submit"
+								value="Cambiar Habilitacion"></td>
+
+						</tr>
+					</tbody>
+				</table>
+
+			</form>
+			<br>
+			<table class="table table-striped">
+				<tbody>
+
+					<tr>
+						<th>Ordenar por</th>
+						<th><select name="orden">
+								<option value="nombre">Nombre</option>
+								<option value="apellido">Apellido</option>
+								<option value="dni">DNI</option>
+						</select></th>
+					</tr>
+			</table>
+			<br>
+			<table>
+				<tr>
+					<td><a href="">Informacion Estadistica</a></td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+</body>
+</html>
