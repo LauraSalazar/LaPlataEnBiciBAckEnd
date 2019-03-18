@@ -8,10 +8,10 @@
  <provider>org.hibernate.ejb.HibernatePersistence</provider>
  <properties>
  <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
- <property name="hibernate.connection.password" value="penelope77"/>
- <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/mibd"/>
- <property name="hibernate.connection.username" value="root" />
- <property name="hibernate.default_schema" value="mibd" />
+ <property name="hibernate.connection.password" value="jyaa!pwd28"/>
+ <property name="hibernate.connection.url" value="jdbc:mysql://mysql.java.linti.unlp.edu.ar/jyaa_2017_bd28"/>
+ <property name="hibernate.connection.username" value="jyaa_2017_usr28" />
+ <property name="hibernate.default_schema" value="jyaa_2017_bd28" />
  <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
  <property name="hibernate.hbm2ddl.auto" value="update"/>
  <property name = "hibernate.show_sql" value = "true" />

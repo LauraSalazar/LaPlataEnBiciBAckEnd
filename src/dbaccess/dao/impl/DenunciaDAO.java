@@ -3,6 +3,8 @@ package dbaccess.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import dbaccess.dto.DenunciaDTO;
 import model.Denuncia;
 
@@ -17,10 +19,16 @@ public class DenunciaDAO extends GenericDAO{
 	
 	public DenunciaDTO getDenuncia(Integer id){
 		
+		DenunciaDTO denunciaDTO = new DenunciaDTO();  
 		String query = "from Denuncia a where a.id = :id ";
+		try {
 		Denuncia denuncia = (Denuncia)this.getEntityManager().createQuery(query).setParameter("id", id).getSingleResult();
-		DenunciaDTO denunciaDTO = new DenunciaDTO(denuncia);  
-		return denunciaDTO;
+		 denunciaDTO = new DenunciaDTO(denuncia);  
+		}
+		catch (NoResultException e) {
+			return denunciaDTO;
+		}
+		 return denunciaDTO;
 		
 	}
 	
@@ -41,18 +49,29 @@ public class DenunciaDAO extends GenericDAO{
 	
 	public Denuncia findByID(Integer id){
 		String query = "from Denuncia a where a.id = :id ";
-		Denuncia denuncia = (Denuncia)this.getEntityManager().createQuery(query).setParameter("id", id).getSingleResult();
+		Denuncia denuncia;
+		try {
+		  denuncia = (Denuncia)this.getEntityManager().createQuery(query).setParameter("id", id).getSingleResult();
+		}
+		catch (NoResultException e) {
+			return null;
+		}
 		return denuncia;	
 	}
 
-
+	@SuppressWarnings("unchecked")
 	public List<DenunciaDTO> getAll(){
 		String query = "from Denuncia ";
-		@SuppressWarnings("unchecked")
-		List<Denuncia> denuncias = (List<Denuncia>)this.getEntityManager().createQuery(query).getResultList();
 		List<DenunciaDTO> denunciasDTO = new ArrayList<DenunciaDTO>();
+		try {
+		List<Denuncia> denuncias = (List<Denuncia>)this.getEntityManager().createQuery(query).getResultList();
+
 		for(Denuncia a : denuncias){
 			denunciasDTO.add(new DenunciaDTO(a));
+		}
+		}
+		catch (NoResultException e) {
+			return denunciasDTO;
 		}
 		return denunciasDTO;
 	}

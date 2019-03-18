@@ -23,6 +23,9 @@ public class BicicletaXml {
 	//Usuario que tiene esta bicicleta
 	private Integer idUsuario;
 	
+	@XmlElement
+	private Integer idEstacion;
+	
 	public String getFechaIngreso() {
 		return fechaIngreso;
 	}
@@ -62,6 +65,15 @@ public class BicicletaXml {
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
 	}
+	
+	
+	public Integer getIdEstacion() {
+		return idEstacion;
+	}
+	public void setIdEstacion(Integer idEstacion) {
+		this.idEstacion = idEstacion;
+	}
+	
 	public BicicletaXml(){}
 	
 	public BicicletaXml(Integer id, String fechaIngreso, String estado, String numeroCuadro, String ubicacionActual, Integer idUsuario){

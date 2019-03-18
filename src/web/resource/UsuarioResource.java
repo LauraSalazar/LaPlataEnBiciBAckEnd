@@ -45,7 +45,7 @@ public class UsuarioResource {
 
 	@GET
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Path("{usuarioId}")
+	@Path("/{usuarioId}")
 	public Response getUsuario(@PathParam("usuarioId") Integer id) {
 		Response response;
 		UsuarioDTO usuarioDTO = usuarioService.getUsuario(id);
@@ -77,26 +77,24 @@ public class UsuarioResource {
 		return response;
 	}
 
-	@PUT
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/modificar")
-	public Response updateUsuario(@FormParam("usuarioId") Integer id, @FormParam("dni") String dni,
-			@FormParam("apellido") String apellido, @FormParam("nombres") String nombres,
-			@FormParam("domicilio") String domicilio, @FormParam("fechaNacimiento") String fechaNacimiento,
-			@FormParam("sexo") String sexo, @FormParam("mail") String mail) {
+	public Response updateUsuario(UsuarioXml user) {
 		Response response = null;
 		try {
 
-			UsuarioDTO usuarioDTO = usuarioService.getUsuario(id);
+			UsuarioDTO usuarioDTO = usuarioService.getUsuario(user.getId());
 			if (usuarioDTO != null) {
-				usuarioService.update(id, dni, apellido, nombres, domicilio, fechaNacimiento, sexo, mail);
-				usuarioDTO = usuarioService.getUsuario(id);
-				response = Response.ok(usuarioDTO).build();
+				usuarioService.update(user.getId(), user.getDni(), user.getApellido(), user.getNombres(), user.getDomicilio(), user.getFechaNac(), user.getSexo(), user.getMail());
+				usuarioDTO = usuarioService.getUsuario(user.getId());
+				response = Response.ok(usuarioDTO.getId()).build();
 			} else {
 				response = Response.status(204).build();
 			}
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			response = Response.status(500).build();
 		}
 		return response;

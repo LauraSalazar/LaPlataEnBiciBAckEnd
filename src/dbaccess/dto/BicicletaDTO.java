@@ -9,6 +9,7 @@ public class BicicletaDTO {
 	private String estado;
 	private String numeroCuadro;
 	private String ubicacionActual;
+	private Integer idEstacion;
 	
 	public String getNumeroCuadro() {
 		return numeroCuadro;
@@ -56,6 +57,14 @@ public class BicicletaDTO {
 		this.ubicacionActual = ubicacionActual;
 	}
 
+	public Integer getIdEstacion() {
+		return idEstacion;
+	}
+
+	public void setIdEstacion(Integer idEstacion) {
+		this.idEstacion = idEstacion;
+	}
+
 	public BicicletaDTO(Bicicleta bici) {
 		super();
 		this.fechaIngreso = bici.getFechaIngreso();
@@ -63,6 +72,7 @@ public class BicicletaDTO {
 		this.estado = bici.getEstado();
 		this.ubicacionActual = bici.getUbicacionActual().getNombre();
 		this.numeroCuadro = bici.getNumeroCuadro();
+		this.idEstacion = bici.getUbicacionActual().getId();
 	}
 	
 	public BicicletaDTO() {

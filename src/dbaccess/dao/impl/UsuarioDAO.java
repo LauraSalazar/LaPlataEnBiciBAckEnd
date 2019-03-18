@@ -40,8 +40,7 @@ public class UsuarioDAO extends GenericDAO {
 	public void update(Usuario usuario) {
 
 		this.getEntityManager().getTransaction().begin();
-		Usuario usuarioTemp = this.findById(usuario.getId());
-		this.getEntityManager().refresh(usuarioTemp);
+		this.getEntityManager().merge(usuario);
 		this.getEntityManager().getTransaction().commit();
 
 	}

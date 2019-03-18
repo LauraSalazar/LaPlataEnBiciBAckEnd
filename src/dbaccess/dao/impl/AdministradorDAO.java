@@ -8,10 +8,11 @@ import model.Administrador;
 
 public class AdministradorDAO extends GenericDAO{
 
-	public void create(Administrador admin){
+	public Integer create(Administrador admin){
 		this.getEntityManager().getTransaction().begin();
 		this.getEntityManager().persist(admin);
 		this.getEntityManager().getTransaction().commit();
+		return admin.getId();
 
 	} 
 	

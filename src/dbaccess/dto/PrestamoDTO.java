@@ -9,6 +9,11 @@ public class PrestamoDTO {
 	private Integer idBicicleta;
 	private Integer idPersona;
 	private Integer idDenuncia;
+	private String ubicacionActual;
+	private String numeroCuadro;
+	private String nombreUsuario; 
+	private String comentario;
+	private Boolean denunciada;
 
 	public PrestamoDTO(Prestamo prestamo) {
 		super();
@@ -17,9 +22,24 @@ public class PrestamoDTO {
 		this.fechaFin = prestamo.getFechafin();
 		this.idBicicleta = prestamo.getBicicleta().getId();
 		this.idPersona = prestamo.getUser().getId();
+		if (prestamo.getDenuncia() != null) {
 		this.idDenuncia = prestamo.getDenuncia().getId();
+		this.comentario = prestamo.getDenuncia().getHechos();
+		this.denunciada = true;
+		}
+		else {
+			this.idDenuncia = 0;
+			this.denunciada = false;
+		}
+		this.ubicacionActual = prestamo.getBicicleta().getUbicacionActual().getNombre();
+		this.numeroCuadro = prestamo.getBicicleta().getNumeroCuadro();
+		this.nombreUsuario = prestamo.getUser().getNombres() + " " + prestamo.getUser().getApellido();
 	}
 
+	public PrestamoDTO () {
+		super();
+	}
+	
 	public Integer getIdPrestamo() {
 		return idPrestamo;
 	}
@@ -68,4 +88,45 @@ public class PrestamoDTO {
 		this.idDenuncia = idDenuncia;
 	}
 
+	public String getUbicacionActual() {
+		return ubicacionActual;
+	}
+
+	public void setUbicacionActual(String ubicacionActual) {
+		this.ubicacionActual = ubicacionActual;
+	}
+
+	public String getNumeroCuadro() {
+		return numeroCuadro;
+	}
+
+	public void setNumeroCuadro(String numeroCuadro) {
+		this.numeroCuadro = numeroCuadro;
+	}
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+
+	public Boolean getDenunciada() {
+		return denunciada;
+	}
+
+	public void setDenunciada(Boolean denunciada) {
+		this.denunciada = denunciada;
+	}
+
+	
 }

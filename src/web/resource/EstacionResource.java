@@ -81,7 +81,7 @@ public class EstacionResource {
             System.out.println("estacion.getHbilitado: " + estacion.getCantidadbicicletasmax());
             //String nombre, String codigoPostal, String abiertoDesde, String abiertoHasta, String estado, String ubicacionLatitud, String ubicacionLongitud, Integer cantidad
 			// usuarioService.create(usuario.getDni(),usuario.getApellido(),usuario.getNombres(),usuario.getDomicilio(),usuario.getFechaNac(),usuario.getSexo(),usuario.getMail());
-			Integer id = estacionService.create(estacion.getNombre(),estacion.getCodigopostal(), estacion.getLatitud(), estacion.getLongitud(),estacion.getEstado(),estacion.getAbiertodesde(),estacion.getAbiertohasta(), estacion.getCantidadbicicletasmax()   );
+			Integer id = estacionService.create(estacion.getNombre(),estacion.getCodigopostal(), estacion.getAbiertodesde(), estacion.getAbiertohasta(),estacion.getLatitud(),estacion.getLongitud(),estacion.getEstado(), Integer.valueOf(estacion.getCantidadbicicletasmax()));
 
 			response = Response.ok(200).
 				entity(String.valueOf(id)).
@@ -93,26 +93,26 @@ public class EstacionResource {
 	}
 	
 
-	@PUT
+	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/modificar")
-	public Response updateUsuario(@FormParam("estacionId") Integer id, @FormParam("nombre") String nombre,
-			@FormParam("codigoPostal") String codigoPostal, @FormParam("estado") String estado,
-			@FormParam("ubicacionLatitud") String ubicacionLatitud,@FormParam("ubicacionLongitud") String ubicacionLongitud, @FormParam("abiertoDesde") String abiertoDesde,
-			@FormParam("abiertoHasta") String abiertoHasta, @FormParam("cantidadBicicletasMax") Integer cantidadBicicletasMax) {
+	public Response updateUsuario(EstacionXml estacion) {
+		System.out.println("Entro en el modificar estacion.id: " + estacion.getId());
 		Response response = null;
 		try {
 
-			EstacionDTO estacionDTO = estacionService.getEstacion(id);
+			EstacionDTO estacionDTO = estacionService.getEstacion(estacion.getId());
 			if (estacionDTO != null) {
-				estacionService.update(id, nombre, codigoPostal, abiertoDesde, abiertoHasta, estado, ubicacionLatitud, ubicacionLongitud, cantidadBicicletasMax);
-				estacionDTO = estacionService.getEstacion(id);
+				estacionService.update(estacion.getId(), estacion.getNombre(), estacion.getCodigopostal(), estacion.getAbiertodesde(), estacion.getAbiertohasta(), estacion.getEstado(), estacion.getLatitud(), estacion.getLongitud(), estacion.getCantidadbicicletasmax());
+				estacionDTO = estacionService.getEstacion(estacion.getId());
 				response = Response.ok(estacionDTO).build();
 			} else {
 				response = Response.status(204).build();
 			}
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			response = Response.status(500).build();
 		}
 		return response;

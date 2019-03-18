@@ -8,6 +8,9 @@ public class DenunciaDTO {
 	private String fecha;
 	private Integer id;
 
+	public DenunciaDTO() {
+		super();
+	}
 	public String getHechos() {
 		return hechos;
 	}

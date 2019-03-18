@@ -8,18 +8,7 @@ public class UsuarioXml {
 	
 	@XmlElement
 	private Integer Id;
-	
-	public Integer getId() {
-		return Id;
-	}
 
-	public void setId(Integer id) {
-		Id = id;
-	}
-
-	@XmlElement
-	private String habilitado;
-	
 	@XmlElement
 	private String dni;
 	
@@ -44,13 +33,15 @@ public class UsuarioXml {
 	@XmlElement
 	private String password;
 
-	public String getHabilitado() {
-		return habilitado;
+	
+	public Integer getId() {
+		return Id;
 	}
 
-	public void setHabilitado(String habilitado) {
-		this.habilitado = habilitado;
+	public void setId(Integer id) {
+		Id = id;
 	}
+
 
 	public String getDni() {
 		return dni;
@@ -119,7 +110,7 @@ public class UsuarioXml {
 
 	public UsuarioXml(){}
 	
-	public UsuarioXml(Integer id, String dni, String apellido, String nombres, String domicilio, String fechaNac, String sexo, String mail, String habilitado, String password){
+	public UsuarioXml(Integer id, String dni, String apellido, String nombres, String domicilio, String fechaNac, String sexo, String mail, String password){
 		super();
 		this.setId(id);
 		this.setDni(dni);
@@ -129,7 +120,6 @@ public class UsuarioXml {
 		this.setFechaNac(fechaNac);
 		this.setSexo(sexo);
 		this.setMail(mail);
-		this.setHabilitado(habilitado);
 		this.setPassword(password);
 	}
 	

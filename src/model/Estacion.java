@@ -89,7 +89,8 @@ public class Estacion {
 		this.estado = estado;
 	}
 
-	public Estacion(String nombre, String codigoPostal, String abiertoDesde, String abiertoHasta, String estado, String ubicacionLatitud, String ubicacionLongitud, Integer cantidad){
+	//estacion.getNombre(),estacion.getCodigopostal(), estacion.getLatitud(), estacion.getLongitud(),estacion.getEstado(),estacion.getAbiertodesde(),estacion.getAbiertohasta(), estacion.getCantidadbicicletasmax()   
+	public Estacion(String nombre, String codigoPostal, String abiertoDesde, String abiertoHasta,String ubicacionLatitud, String ubicacionLongitud, String estado, Integer cantidad){
 		super();
 		this.nombre = nombre;
 		this.codigoPostal = codigoPostal;

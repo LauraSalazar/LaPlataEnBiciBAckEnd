@@ -21,7 +21,7 @@ public class Prestamo {
 	private Usuario usuario;
 	@OneToOne
 	private Bicicleta bicicleta;
-	@OneToOne(cascade=CascadeType.REMOVE)
+	@OneToOne(cascade=CascadeType.ALL)
 	private Denuncia denuncia;
 	
 	public Integer getIdPrestamo() {

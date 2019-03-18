@@ -59,6 +59,7 @@ public class AuthenticationResource {
 			System.out.println("Entro en diferente de null");
 			categoria = this.usuarioService.validateUser(dni, password) ? 1 : 0;
 			if (categoria.equals(0)) {
+				System.out.println("Entro en igual a 0");
 				categoria = this.usuarioService.validateAdmin(dni, password) ? 2 : 0;
 			}
 		}
@@ -73,6 +74,7 @@ public class AuthenticationResource {
 			response = Response.ok(auth).build();
 		} 
 		catch (Exception e) {
+			e.printStackTrace();
 			response = Response.status(500).build();
 		}
 		return response;

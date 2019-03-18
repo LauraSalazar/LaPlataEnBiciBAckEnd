@@ -34,14 +34,15 @@ public void delete (Integer id){
 	Estacion estacion = estacionDAO.findById(id);
 	estacionDAO.delete(estacion);
 }
-//String nombre, String codigoPostal, String abiertoDesde, String abiertoHasta, String estado, String ubicacionLatitud, String ubicacionLongitud, Integer cantidad
-//estacion.getNombre(), estacion.getCodigoPostal(), estacion.getEstado(), estacion.getUbicacionActual(), estacion.getAbiertoDesde(), estacion.getAbiertoHasta(), estacion.getCantidadBicicletasMax()
-public Integer create(String nombre,String codigoPostal,String ubicacionLatitud, String ubicacionLongitud,String estado,String abiertoDesde,String abiertoHasta,Integer cantidadBicicletasMax){
-	 return estacionDAO.create(new Estacion(nombre,codigoPostal,ubicacionLatitud,ubicacionLongitud,estado,abiertoDesde,abiertoHasta,cantidadBicicletasMax));
+
+//String nombre, String codigoPostal, String abiertoDesde, String abiertoHasta,String ubicacionLatitud, String ubicacionLongitud, String estado, Integer cantidad
+public Integer create(String nombre,String codigoPostal,String abiertoDesde, String abiertoHasta, String ubicacionLatitud, String ubicacionLongitud,String estado, Integer cantidadBicicletasMax){
+	 return estacionDAO.create(new Estacion(nombre,codigoPostal,abiertoDesde,abiertoHasta,ubicacionLatitud,ubicacionLongitud,estado,cantidadBicicletasMax));
 }
 
 public void update(Integer id,String nombre,String codigoPostal,String abiertoDesde,String abiertoHasta,String estado, String ubicacionLatitud, String ubicacionLongitud, Integer cantidadBicicletasMax){
 	
+	System.out.println("Este es el id que mando: " + id);
 	Estacion estacion = estacionDAO.findById(id); 
 	estacion.setNombre(nombre);
 	estacion.setCodigoPostal(codigoPostal);

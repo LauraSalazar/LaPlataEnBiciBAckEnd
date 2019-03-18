@@ -16,6 +16,8 @@ import model.Estacion;
 import model.Estado;
 import model.Ubicacion;
 import model.Usuario;
+import web.service.BicicletaService;
+import web.service.PrestamoService;
 
 public class Main {
 
@@ -130,7 +132,19 @@ public class Main {
 		
 		//Los usuarios retiran bicicleta
 		
-		usuario1.retirarBicicleta("20-09-2017","21-01-2017",bici1);
+		PrestamoService biciService = new PrestamoService();
+		biciService.retirarBicicleta(bici1.getId(), usuario1.getId());
+		biciService.retirarBicicleta(bici2.getId(), usuario2.getId());
+		biciService.retirarBicicleta(bici4.getId(), usuario3.getId());
+		biciService.retirarBicicleta(bici5.getId(), usuario4.getId());
+		biciService.retirarBicicleta(bici7.getId(), usuario5.getId());
+		biciService.retirarBicicleta(bici8.getId(), usuario6.getId());
+		biciService.retirarBicicleta(bici9.getId(), usuario6.getId());
+		biciService.retirarBicicleta(bici10.getId(), usuario7.getId());
+		biciService.retirarBicicleta(bici12.getId(), usuario7.getId());
+		biciService.retirarBicicleta(bici11.getId(), usuario8.getId());
+		
+/*		usuario1.retirarBicicleta("20-09-2017","21-01-2017",bici1);
 		usuario2.retirarBicicleta("06-09-2017","07-01-2017",bici2);
 		usuario3.retirarBicicleta("09-01-2017","10-01-2017",bici4);
 		usuario4.retirarBicicleta("13-02-2017","14-02-2017",bici5);
@@ -139,12 +153,10 @@ public class Main {
 		usuario6.retirarBicicleta("22-05-2017","23-05-2017",bici9);
 		usuario7.retirarBicicleta("10-03-2017","11-03-2017",bici10);
 		usuario7.retirarBicicleta("01-03-2017","02-03-20º7",bici12);
-		usuario8.retirarBicicleta("04-04-2017","05-04-2017",bici11);
+		usuario8.retirarBicicleta("04-04-2017","05-04-2017",bici11);*/
 		
 		//Se denuncia la bici 1 y 2
-		bici1.denunciarBicicleta(usuario1,"Los cambios estan rotos");
-		bici2.denunciarBicicleta(usuario2,"El cuadro esta torcido");
-		
+
 		//Armo e imprimo listado Usuario
 	    for(UsuarioDTO  u: usuarioDAO.getAll()){
 	    	System.out.println(u.toString());
